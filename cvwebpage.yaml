@@ -12,8 +12,18 @@
       state: latest
     notify:
     - startservice
+  - name: install GIT on webserver group
+    yum:
+      name: git
+      state: latest
+    notify:
+    - clonerepo
   handlers:
   - name: startservice
     service:
       name: httpd
       state: restarted
+  - name: clonerepo
+    git:
+      repo: 'https://github.com/drewripa/cvwebpage.git'
+      dest: '/var/www/html'
