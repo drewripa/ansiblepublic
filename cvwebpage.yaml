@@ -1,10 +1,14 @@
---- #Web Server setup
-- hosts: webserver
+--- # Web Server setup
+- hosts: '{{ webhosts }}'
   remote_user: ansible
   become: yes
   become_method: sudo
   connection: ssh
   gather_facts: yes
+  vars:
+    webhosts: webserver
+    srcrepo: 'https://github.com/drewripa/cvwebpage.git'
+    srcdest: '/var/www/html'
   tasks:
   - name: install HTTPD on webserver group
     yum:
@@ -18,8 +22,8 @@
       state: latest
   - name: clonerepo
     git:
-      repo: 'https://github.com/drewripa/cvwebpage.git'
-      dest: '/var/www/html'
+      repo: '{{ srcrepo }}'
+      dest: '{{ srcdest }}'
   handlers:
   - name: startservice
     service:
