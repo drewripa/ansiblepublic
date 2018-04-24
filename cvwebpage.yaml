@@ -16,14 +16,13 @@
     yum:
       name: git
       state: latest
-    notify:
-    - clonerepo
-  handlers:
-  - name: startservice
-    service:
-      name: httpd
-      state: restarted
   - name: clonerepo
     git:
       repo: 'https://github.com/drewripa/cvwebpage.git'
       dest: '/var/www/html'
+  handlers:
+  - name: startservice
+    service:
+      name: httpd
+      enabled: yes
+      state: restarted
