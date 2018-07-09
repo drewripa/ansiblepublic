@@ -9,6 +9,7 @@
     webhosts: webserver
     srcrepo: 'https://github.com/drewripa/cvwebpage.git'
     srcdest: '/var/www/html'
+    srcbranch: 'luxoft'
   tasks:
   - name: install HTTPD on webserver group
     yum:
@@ -24,6 +25,7 @@
     git:
       repo: '{{ srcrepo }}'
       dest: '{{ srcdest }}'
+      version: '{{ srcbranch }}'
   handlers:
   - name: startservice
     service:
