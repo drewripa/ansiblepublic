@@ -1,0 +1,6 @@
+--- # Variables for Jenkins Playbook
+jenkinshomeroot: /u02/jenkins/home
+jenkinswarroot: /u02/jenkins/war
+jenkinslogroot: /u02/jenkins/log
+jenkinshome: '{{ jenkinshomeroot }}'/jenkins
+jenkinswarfile: '{{ jenkinswarroot }}'/jenkins.war
