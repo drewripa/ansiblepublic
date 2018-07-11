@@ -1,0 +1,9 @@
+--- #Jenkins update
+- hosts: idms_jenkins_master
+  remoteuser: ansible
+  become: true
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - update

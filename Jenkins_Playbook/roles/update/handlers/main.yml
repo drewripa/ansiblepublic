@@ -1,0 +1,5 @@
+--- #Handlers for updates
+- name: start jenkins service
+  service:
+    name: jenkins
+    state: restarted

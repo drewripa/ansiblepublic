@@ -1,0 +1,17 @@
+--- #Update tasks
+- name: Stop Jenkins service
+  service:
+    name: jenkins
+    state: stoped
+- name: Backup Jenkins war file
+  copy:
+    mode: preserve
+    remote_src: yes
+    src: '{{ jenkinswarfile }}'
+    dest: jenkins.{{ansible_date_time.date}}.bkp.war
+- name: Download new file
+  get_url:
+    url: https://updates.jenkins-ci.org/latest/jenkins.war
+    dest: '{{ jenkinswarfile }}'
+    force: yes
+    notify: start jenkins service
