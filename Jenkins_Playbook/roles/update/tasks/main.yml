@@ -8,7 +8,7 @@
     mode: preserve
     remote_src: yes
     src: "{{ jenkinswarfile }}"
-    dest: jenkins.{{ansible_date_time.date}}.bkp.war
+    dest: "{{ jenkinswarroot }}/jenkins.{{ansible_date_time.date}}.bkp.war"
 - name: Download new file
   get_url:
     url: https://updates.jenkins-ci.org/latest/jenkins.war
