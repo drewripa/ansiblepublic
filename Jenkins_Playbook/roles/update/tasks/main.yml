@@ -14,4 +14,7 @@
     url: https://updates.jenkins-ci.org/latest/jenkins.war
     dest: "{{ jenkinswarfile }}"
     force: yes
-  notify: start jenkins service
+- name: Start jenkins service
+  service:
+    name: jenkins
+    state: restarted
