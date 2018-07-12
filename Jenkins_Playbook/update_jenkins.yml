@@ -1,6 +1,6 @@
 --- #Jenkins update
 - hosts: idms_jenkins_master
-  remoteuser: ansible
+  remote_user: ansible
   become: true
   become_method: sudo
   connection: ssh
