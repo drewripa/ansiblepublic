@@ -2,7 +2,7 @@
 - name: Stop Jenkins service
   service:
     name: jenkins
-    state: stoped
+    state: stopped
 - name: Backup Jenkins war file
   copy:
     mode: preserve
